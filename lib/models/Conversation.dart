@@ -15,6 +15,7 @@ class Chat {
   Chat({this.message, this.author, this.replyTo});
 }
 
+
 final List<Conversation> DefaultData = [
   Conversation(user: "Ritesh", chats: [
     Chat(message: "Hello", author: "Ritesh"),

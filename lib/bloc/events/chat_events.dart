@@ -1,0 +1,2 @@
+
+enum ChatEvent { ADD, DELETE }
