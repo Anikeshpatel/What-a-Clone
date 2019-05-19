@@ -45,70 +45,73 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     double yourWidth = width  / 5;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Loverz"),
-        backgroundColor: primaryColor,
-        actions: <Widget>[
-          InkWell(
-            child: Icon(Icons.search),
-            onTap: () {},
-          ),
-          SizedBox(
-            width: 10,
-          ),
-          InkWell(
-            child: Icon(Icons.more_vert),
-            onTap: () {},
-          ),
-          SizedBox(
-            width: 5,
-          ),
-        ],
-        bottom: TabBar(
-          indicatorColor: Colors.white,
-          indicatorPadding: EdgeInsets.all(0),
-          isScrollable: true,
-          controller: tabController,
-          tabs: <Widget>[
-            Container(
-              width: 20,
-              height: 50,
-              alignment: Alignment.center,
-              child: Icon(
-                Icons.camera_alt,
-              ),
+      appBar: tabController.index != 0 ? PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: AppBar(
+          title: Text("WhatAClone"),
+          backgroundColor: primaryColor,
+          actions: <Widget>[
+            InkWell(
+              child: Icon(Icons.search),
+              onTap: () {},
             ),
-            Container(
-                width: yourWidth,
-                height: 50,
-                alignment: Alignment.center,
-                child: Text("CHATS")),
-            Container(
-                width: yourWidth,
-                height: 50,
-                alignment: Alignment.center,
-                child: Text("STATUS")),
-            Container(
-                width: yourWidth,
-                height: 50,
-                alignment: Alignment.center,
-                child: Text("CALL"))
+            SizedBox(
+              width: 10,
+            ),
+            InkWell(
+              child: Icon(Icons.more_vert),
+              onTap: () {},
+            ),
+            SizedBox(
+              width: 5,
+            ),
           ],
-        )
-      ),
+          bottom: TabBar(
+            indicatorColor: Colors.white,
+            indicatorPadding: EdgeInsets.all(0),
+            isScrollable: true,
+            controller: tabController,
+            tabs: <Widget>[
+              Container(
+                width: 20,
+                height: 50,
+                alignment: Alignment.center,
+                child: Icon(
+                  Icons.camera_alt,
+                ),
+              ),
+              Container(
+                  width: yourWidth,
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text("CHATS")),
+              Container(
+                  width: yourWidth,
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text("STATUS")),
+              Container(
+                  width: yourWidth,
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text("CALL"))
+            ],
+          )
+        ),
+      ) : null,
       body: TabBarView(children: [
         Text("Camera"),
         Chats(),
         Text("Status"),
         Text("Calls"),
       ], controller: tabController,),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: tabController.index != 0 ? FloatingActionButton(
         onPressed: () {
           tabController.index = 3;
         },
         child: Icon(fabIcon, color: Colors.white,),
         backgroundColor: accentColor,
-      ),
+      ) : null
     );
   }
 }
