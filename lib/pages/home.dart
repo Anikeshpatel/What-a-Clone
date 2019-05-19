@@ -11,6 +11,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   TabController tabController;
   IconData fabIcon = Icons.message;
 
+  List<String> menuItems = [
+    "New group",
+    "New broadcast",
+    "Labels",
+    "WhatsApp Web",
+    "Starred Messages",
+    "Settings"
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -59,12 +68,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               width: 10,
             ),
             InkWell(
-              child: Icon(Icons.more_vert),
+              child: PopupMenuButton(itemBuilder: (context) {
+                return menuItems.map((menu) {
+                  return PopupMenuItem(child: Text(menu));
+                }).toList();
+              }),
               onTap: () {},
-            ),
-            SizedBox(
-              width: 5,
-            ),
+            )
           ],
           bottom: TabBar(
             indicatorColor: Colors.white,
