@@ -61,6 +61,10 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
         body: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/img/chat_bg.png"),
+                  fit: BoxFit.cover)),
           child: Column(
             children: <Widget>[
               Expanded(child: MessageList(chatData.chats)),
@@ -74,7 +78,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         flex: 6,
                         child: Card(
                           color: Colors.white,
-                          elevation: 3,
+                          elevation: 1,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50)),
                           child: Padding(
@@ -82,7 +86,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             child: Row(
                               children: <Widget>[
                                 InkWell(
-                                  child: Icon(Icons.face),
+                                  child: Icon(Icons.face, color: darkTextColor,),
                                   onTap: () {},
                                 ),
                                 SizedBox(
@@ -96,26 +100,24 @@ class _ChatScreenState extends State<ChatScreen> {
                                     decoration: InputDecoration(
                                         hintText: "Type a message",
                                         fillColor: Colors.transparent,
-                                        filled: false,
-                                        labelStyle:
-                                            TextStyle(color: Colors.blueAccent),
-                                        border: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: Colors.transparent))),
+                                        labelStyle: TextStyle(
+                                            color: Colors.transparent),
+                                        border: InputBorder.none
+                                    ),
                                     onChanged: (text) {
                                       print(text);
                                     },
                                   ),
                                 ),
                                 InkWell(
-                                  child: Icon(Icons.attach_file),
+                                  child: Icon(Icons.attach_file, color: darkTextColor,),
                                   onTap: () {},
                                 ),
                                 SizedBox(
                                   width: 5,
                                 ),
                                 InkWell(
-                                  child: Icon(Icons.camera_alt),
+                                  child: Icon(Icons.camera_alt, color: darkTextColor),
                                   onTap: () {},
                                 ),
                               ],

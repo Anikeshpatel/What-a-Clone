@@ -23,7 +23,7 @@ class MessageView extends StatelessWidget {
                 children: <Widget>[
                   Text(message.author, style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    color: primaryColor
+                    color: message.author == "Anikesh" ? darkTextColor : primaryColor
                   ),),
                   Text(message.message),
                 ],

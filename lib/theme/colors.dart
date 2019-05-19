@@ -6,3 +6,4 @@ const primaryColor = Color(0xff128c7e);
 const accentColor = Color(0xff25d366);
 const lightColor = Color(0xffdcf8c6);
 const lightSecondaryColor = Color(0xffece5dd);
+const darkTextColor = Color(0xff4f4f4f);
